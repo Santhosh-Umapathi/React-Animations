@@ -4,7 +4,7 @@ import "./App.css";
 import Modal from "./components/Modal/Modal";
 import Backdrop from "./components/Backdrop/Backdrop";
 import List from "./components/List/List";
-import { Transition, TransitionGroup } from "react-transition-group";
+import { Transition, CSSTransition } from "react-transition-group";
 
 
 
@@ -51,7 +51,7 @@ class App extends Component {
 
         </Transition>
 
-        <Transition
+        {/* <Transition
           in={this.state.modalIsOpen}
           timeout={animationTimeout}
           mountOnEnter
@@ -61,16 +61,18 @@ class App extends Component {
           onEntered = {() => console.log("Entered")}
           onExit = {() => console.log("Exit")}
           onExiting = {() => console.log("Exiting")}
-          onExited = {() => console.log("Exited")}
+          onExited={() => console.log("Exited")}
+          
 
         >
           {
             state => <Modal show={state} closed={this.closeModal}/>
           }
 
-        </Transition>
+        </Transition> */}
 
 
+        <Modal show={this.state.modalIsOpen} closed={this.closeModal}/>
 
 
         {this.state.modalIsOpen ? <Backdrop show /> : null}
